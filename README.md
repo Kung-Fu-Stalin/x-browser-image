@@ -1,2 +1,3 @@
-# x-browser-image
-Docker image with Xorg in it and VLC server 
+# base-browser-image
+
+Repo with concept of the base browser Docker image
