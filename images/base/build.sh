@@ -1,12 +1,17 @@
 #!/bin/bash 
 
-IMAGE_NAME="sprut-base"
+IMAGE_NAME="browser-base"
+PARAMS_FILE="params.env"
 
 if [ -z "$1" ]; then
   # Set default value if not provided
   IMAGE_TAG="latest"
 else
   IMAGE_TAG="$1"
+fi
+
+if [ -f $PARAMS_FILE ]; then
+    export $(grep -v '^#' $PARAMS_FILE | xargs)
 fi
 
 check_docker() {
@@ -21,7 +26,12 @@ check_docker() {
 check_docker
 
 echo "=== Starting build docker image: ${IMAGE_NAME}:${IMAGE_TAG}. ==="
-docker build -t $IMAGE_NAME:$IMAGE_TAG .
+
+docker build \
+    --build-arg VNC=${VNC} \
+    --build-arg USER=${USER} \
+    --build-arg RESOLUTION=${RESOLUTION} \
+    -t $IMAGE_NAME:$IMAGE_TAG .
 
 
 if [ $? -eq 0 ]; then

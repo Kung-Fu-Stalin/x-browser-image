@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-IMAGE_NAME="sprut-chrome-custom"
+IMAGE_NAME="chrome-custom"
 
 if [ -z "$1" ]; then
   # Set default value if not provided

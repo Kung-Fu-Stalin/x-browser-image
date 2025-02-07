@@ -1,6 +1,6 @@
 ARG TAG=latest
 
-FROM sprut-base:${TAG}
+FROM browser-base:${TAG}
 
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 

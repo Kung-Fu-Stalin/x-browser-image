@@ -4,7 +4,7 @@ export DISPLAY_NUM=99
 export DISPLAY=":$DISPLAY_NUM"
 
 echo "--> All supervisor configuration files available: ${SUPERVISOR_CONF_PATH}"
-echo "--> Sprut logs path: ${SPRUT_LOGS_PATH}"
+echo "--> Logs path: ${SPRUT_LOGS_PATH}"
 
 echo "---> Launch chromedriver..."
 DISPLAY="$DISPLAY" /usr/bin/chromedriver --port=4444 --verbose --allowed-ips="" --allowed-origins=* &
